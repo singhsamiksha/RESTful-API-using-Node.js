@@ -1,6 +1,8 @@
-import app from "./server.js";
-import users from "./data.js";
+import app from "../server.js";
+import users from "../utils/data.js";
 import express from 'express';
+import '../Middlewares/validateMiddleware.js';
+import '../Middlewares/logMiddleware.js';
 
 
 app.use(express.json());
@@ -18,5 +20,6 @@ app.put('/user/:id', (req, res) => {
         user[key] = req.body[key];
     });
 
-    res.send(users); 
+    res.status(200).send(users); 
+    console.log("User is updated successfully.");
 });

@@ -40,7 +40,8 @@ const users = [
       "city": "Chennai" 
     }
   ]
-
+ 
+  console.log("data is added");
 
   export default users;
   

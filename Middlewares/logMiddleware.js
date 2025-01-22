@@ -1,4 +1,4 @@
-import app from "./server.js";
+import app from "../server.js";
 import express from 'express';
 
 app.use(express.json());
