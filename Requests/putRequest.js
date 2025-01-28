@@ -7,6 +7,7 @@ import '../Middlewares/logMiddleware.js';
 
 app.use(express.json());
 
+//Edit user details by id
 app.put('/user/:id', (req, res) => {
     const userId = req.params.id;
     const user = users.find((user) => user.id === userId);

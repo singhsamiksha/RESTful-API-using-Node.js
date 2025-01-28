@@ -6,6 +6,7 @@ import '../Middlewares/logMiddleware.js'
 
 app.use(express.json());
 
+//Create new user
 app.post("/user", (req,res)=>{
     const newUser = {
         ...req.body,

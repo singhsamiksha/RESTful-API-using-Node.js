@@ -3,6 +3,7 @@ import users from "../utils/data.js";
 import '../Middlewares/validateMiddleware.js';
 import '../Middlewares/logMiddleware.js'
 
+//Fetch user by Id
 app.get("/users/:id", (req,res)=>{
     const userId = req.params.id;
     const user = users.find((user)=> user.id==userId);

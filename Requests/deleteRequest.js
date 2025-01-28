@@ -7,6 +7,7 @@ import '../Middlewares/logMiddleware.js';
 
 app.use(express.json());
 
+//Delete User by Id
 app.delete('/user/:id', (req, res) => {
     const userId = req.params.id;
     const userIndex = users.findIndex((user) => user.id === userId);
