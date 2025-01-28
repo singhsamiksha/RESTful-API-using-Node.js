@@ -1,5 +1,3 @@
-import app from "../server.js";
-import users from "../utils/data.js";
 import '../Middlewares/logMiddleware.js';
 
 //Fetch all users
