@@ -16,5 +16,6 @@ export function createMember(req,res){
             return res.status(400).json({message:"Something went wrong!"});
         }
         res.status(201).json(data);
+        console.log("Welcome, New member account is created!");
     })
 }

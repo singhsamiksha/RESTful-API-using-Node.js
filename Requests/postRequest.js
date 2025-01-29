@@ -1,5 +1,5 @@
 
-import {createMember} from "../Controller/member.control.js";
+import {createMember} from "../Controller/postMember.control.js";
 import '../Middlewares/validateMiddleware.js';
 import '../Middlewares/logMiddleware.js'
 

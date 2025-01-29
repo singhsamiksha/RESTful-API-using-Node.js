@@ -1,6 +1,7 @@
+import  {allMembers} from '../Controller/getMembers.control.js'
 import '../Middlewares/logMiddleware.js';
 
 //Fetch all users
-app.get("/users", (req,res)=>{
-     res.status(200).send(users);
-})
+export function getRequest(app){
+     app.get("/api/allmembers", allMembers);
+}
