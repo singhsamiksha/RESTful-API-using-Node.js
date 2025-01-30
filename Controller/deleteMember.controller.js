@@ -4,14 +4,18 @@ export async function deleteMember(req, res) {
     try {
         const memberId = req.params.id;
 
-        // Find and delete member
-        const deletedMember = await memberModel.deleteOne({_id:memberId});
+        // Validate if the memberId is a valid MongoDB ObjectId
+        if (!memberId.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: "Invalid ID format." });
+        }
 
-        if (!deletedMember) {
+        const deleteResult = await memberModel.deleteOne({ _id: memberId });
+
+        if (!deleteResult) {
             return res.status(404).json({ message: "Member doesn't exist with this ID." });
         }
 
-        console.log(`Member with ID: ${memberId} is deleted`);
+        console.log(`Member with ID: ${memberId} has been deleted.`);
         res.status(200).json({ message: `Member with ID: ${memberId} has been deleted successfully.` });
 
     } catch (error) {

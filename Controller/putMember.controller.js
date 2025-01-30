@@ -4,14 +4,18 @@ export async function updateMember(req, res) {
     try {
         const memberId = req.params.id;
 
+        // Validate if the memberId is a valid MongoDB ObjectId
+        if (!memberId.match(/^[0-9a-fA-F]{24}$/)) {
+            return res.status(400).json({ message: "Invalid ID!" });
+        }
+
         const updateResult = await memberModel.updateOne(
-            { _id: memberId },  
-            { $set: req.body }   
+            { _id: memberId },
+            { $set: req.body }
         );
 
-        // Check if the member was updated
-        if (!updateResult.nModified === 0) {
-            return res.status(404).json({ message: "Member doesn't exist or no changes made." });
+        if (!updateResult) {
+            return res.status(404).json({ message: "Member doesn't exist." });
         }
 
         console.log("Member updated successfully");
